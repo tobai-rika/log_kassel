@@ -136,8 +136,9 @@
         <!-- Overlapping Images -->
         <div class="relative w-full max-w-5xl h-64 md:h-[450px] mt-16 mb-12">
             <div class="absolute left-4 top-0 w-3/5 h-full bg-gray-300 neo-border rotated-left overflow-hidden z-10">
-                <img src="https://images.unsplash.com/photo-1544074047-975924d59a7f?q=80&w=1200" alt="LogKoti Dome Sauna" class="w-full h-full object-cover sepia-[0.2] hover:sepia-0 transition-all duration-700">
-                <div class="absolute bottom-6 left-6 bg-[var(--nature-green)] text-white font-bold p-3 text-sm border-2 border-black">LogKoti：森のドームサウナ</div>
+                <!-- サウナ内部写真をメインに配置 -->
+                <img src="images/log01.jpg" alt="LogKoti Dome Sauna Interior" class="w-full h-full object-cover hover:scale-105 transition-all duration-700">
+                <div class="absolute bottom-6 left-6 bg-[var(--nature-green)] text-white font-bold p-3 text-sm border-2 border-black">LogKoti：ドームサウナ内部</div>
             </div>
             <div class="absolute right-4 bottom-[-40px] w-1/2 h-full bg-gray-400 neo-border rotated-right overflow-hidden z-20">
                 <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200" alt="Kassel Dinner" class="w-full h-full object-cover brightness-90 hover:brightness-100 transition-all duration-700">
@@ -163,18 +164,26 @@
         </div>
     </section>
 
-    <!-- Features: LogKoti (Anti-grid / Nature Tones) -->
+    <!-- Features Section -->
     <section class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mt-20">
-        <div class="puffy-card p-10 bg-[var(--nature-sand)] rotated-left">
-            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-4xl mb-6 neo-border-sm">🧖‍♂️</div>
-            <h3 class="text-2xl font-black mb-4 text-[var(--nature-earth)]">Dome Sauna</h3>
-            <p class="font-bold leading-relaxed text-gray-700">宿泊者専用ドームサウナ。自然の音を聴きながらの「外気浴」は、ここでしか味わえない整い体験。</p>
+        <!-- サウナ詳細カードにも写真を配置 -->
+        <div class="puffy-card overflow-hidden bg-[var(--nature-sand)] rotated-left">
+            <div class="h-48 overflow-hidden border-b-4 border-black">
+                <img src="images/log01.jpg" alt="Dome Sauna Detail" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+            </div>
+            <div class="p-8">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-3xl mb-4 neo-border-sm">🧖‍♂️</div>
+                <h3 class="text-2xl font-black mb-4 text-[var(--nature-earth)]">Dome Sauna</h3>
+                <p class="font-bold leading-relaxed text-gray-700 text-sm">宿泊者専用のドームサウナ。木材に囲まれた落ち着いた空間で、心ゆくまで「ととのう」体験を。</p>
+            </div>
         </div>
+        
         <div class="puffy-card p-10 bg-[var(--nature-sage)] rotated-right md:mt-24">
             <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-4xl mb-6 neo-border-sm">🔥</div>
             <h3 class="text-2xl font-black mb-4 text-[var(--nature-green)]">Bonfire</h3>
             <p class="font-bold leading-relaxed text-gray-700">揺らめく炎を見つめる贅沢。焚き火台完備で、都会では味わえない深い語らいの夜を演出します。</p>
         </div>
+        
         <div class="puffy-card p-10 bg-white rotated-left md:mt-12">
             <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-4xl mb-6 neo-border-sm">🌿</div>
             <h3 class="text-2xl font-black mb-4 text-gray-800">Max 6 People</h3>
@@ -212,7 +221,7 @@
         </div>
     </section>
 
-    <!-- Comparison Table (Earth Tones) -->
+    <!-- Comparison Table -->
     <section>
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-6xl font-impact mb-4">CHOOSE YOUR STYLE</h2>
@@ -257,9 +266,7 @@
     <!-- Contact Section -->
     <section id="contact" class="pb-40">
         <div class="bg-[var(--nature-fire)] p-12 md:p-24 rounded-[60px] neo-border text-center text-white relative overflow-hidden">
-            <!-- Background element -->
             <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-black/10 rounded-full"></div>
-            
             <h2 class="text-5xl md:text-8xl font-impact mb-8 relative z-10">RESERVE</h2>
             <p class="text-xl md:text-3xl font-bold mb-12 relative z-10 leading-relaxed">
                 現在、テスト運用期間につき<br>
@@ -268,9 +275,6 @@
             <a href="mailto:test@example.com?subject=Logkoti・カッセル宿泊プラン問い合わせ" class="puffy-button bg-[var(--nature-sand)] text-[var(--nature-earth)] px-16 py-8 text-2xl md:text-4xl font-black inline-block relative z-10">
                 メールを送る
             </a>
-            <p class="mt-12 font-bold opacity-90 relative z-10">
-                ※メーラーが起動します。内容を確認の上、送信してください。
-            </p>
         </div>
     </section>
 
@@ -278,16 +282,10 @@
     <footer class="bg-[var(--neo-black)] text-white p-20 text-center font-bold">
         <div class="font-impact text-4xl mb-4 tracking-tighter">SUGOMoRI RESORT</div>
         <p class="text-[var(--nature-sage)] mb-12">IKUNO KOGEN HIGHLANDS</p>
-        <div class="flex justify-center gap-12 mb-12 text-lg">
-            <a href="#" class="hover:text-[var(--nature-fire)] transition-colors">INSTAGRAM</a>
-            <a href="#" class="hover:text-[var(--nature-fire)] transition-colors">FACEBOOK</a>
-        </div>
-        <div class="h-px w-full max-w-xl bg-white/10 mx-auto mb-12"></div>
         <p class="text-gray-500 text-sm tracking-widest">&copy; 2026 SUGOMoRI x KASSEL. NATURE & LUXURY.</p>
     </footer>
 
     <script>
-        // Smooth scroll for anchors
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
