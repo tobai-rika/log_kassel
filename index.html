@@ -3,296 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logkoti × Kassel | 自然と贅沢が溶け合う宿泊体験</title>
+    <title>【公式】SUGOMoRI Log Koti × カッセル | 最高の「森」と「食」を遊び尽くす！</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+JP:wght@700;900&display=swap');
-
         :root {
-            --nature-green: #2d6a4f;
-            --nature-sage: #95d5b2;
-            --nature-earth: #7f5539;
-            --nature-sand: #ede0d4;
-            --nature-sky: #a2d2ff;
-            --nature-fire: #e2725b;
-            --neo-black: #1a1a1a;
+            --color-main: #4d7c0f;    /* Energetic Green */
+            --color-accent: #f97316;  /* Pop Orange */
+            --color-bg: #fffcf2;      /* Creamy White */
+            --color-text: #2d2d2d;
         }
 
         body {
-            background-color: #f8f9fa;
-            font-family: 'Noto Sans JP', sans-serif;
-            overflow-x: hidden;
-            color: var(--neo-black);
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            scroll-behavior: smooth;
         }
 
-        .font-impact {
-            font-family: 'Archivo Black', sans-serif;
+        .pop-title {
+            font-weight: 900;
+            line-height: 1.3;
         }
 
-        /* Neo-Brutalism Utility */
-        .neo-border {
-            border: 4px solid var(--neo-black);
-            box-shadow: 8px 8px 0px var(--neo-black);
+        .highlight {
+            background: linear-gradient(transparent 70%, #fde68a 70%);
         }
 
-        .neo-border-sm {
-            border: 3px solid var(--neo-black);
-            box-shadow: 4px 4px 0px var(--neo-black);
+        .btn-bounce {
+            background-color: var(--color-accent);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 9999px;
+            display: inline-block;
+            font-weight: 900;
+            font-size: 1.1rem;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.4);
         }
 
-        /* Puffy Design Utility - Natural Texture */
-        .puffy-button {
-            border-radius: 50px;
-            border: 4px solid var(--neo-black);
-            box-shadow: inset -4px -6px 12px rgba(0,0,0,0.15), 6px 8px 0px var(--neo-black);
-            transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .puffy-button::before {
-            content: '';
-            position: absolute;
-            top: 15%;
-            left: 10%;
-            width: 30%;
-            height: 20%;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
+        .btn-bounce:hover {
+            transform: scale(1.05) rotate(-1deg);
         }
 
-        .puffy-button:active {
-            transform: translate(2px, 2px);
-            box-shadow: inset -2px -3px 6px rgba(0,0,0,0.15), 2px 3px 0px var(--neo-black);
-        }
-
-        .puffy-card {
-            border-radius: 40px;
-            border: 4px solid var(--neo-black);
-            box-shadow: 10px 10px 0px var(--neo-black);
+        .card-pop {
             background: white;
+            border-radius: 2rem;
+            border: 3px solid #f3f4f6;
+            transition: all 0.3s ease;
         }
 
-        /* Anti-grid components */
-        .rotated-left { transform: rotate(-2deg); }
-        .rotated-right { transform: rotate(1.5deg); }
-        
-        .floating {
-            animation: floating 5s ease-in-out infinite;
+        .card-pop:hover {
+            border-color: var(--color-main);
+            transform: translateY(-5px);
         }
 
-        @keyframes floating {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(0.5deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        .badge {
+            background: var(--color-main);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
 
-        section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
 
-        /* Backgrounds */
-        .bg-nature-gradient {
-            background: linear-gradient(135deg, #1b4332, #2d6a4f);
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bg-pattern {
+            background-image: radial-gradient(#d1d5db 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
         }
     </style>
 </head>
-<body class="bg-[#fdfcfb]">
-
-    <!-- Header / Nav -->
-    <nav class="fixed top-0 w-full z-50 p-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center bg-white/90 backdrop-blur neo-border-sm p-3 rounded-full">
-            <div class="font-impact text-2xl ml-4 tracking-tighter">LOG×KASSEL</div>
-            <a href="mailto:test@example.com" class="bg-[var(--nature-fire)] text-white px-6 py-2 rounded-full font-bold border-2 border-black hover:brightness-110 transition-all">
-                CONTACT
-            </a>
-        </div>
-    </nav>
+<body class="bg-pattern">
 
     <!-- Hero Section -->
-    <header class="min-h-screen flex flex-col items-center justify-center pt-24 overflow-hidden bg-nature-gradient relative">
-        <!-- Decoration elements (Natural shapes) -->
-        <div class="absolute top-20 left-10 w-32 h-32 bg-[var(--nature-sand)] rounded-full neo-border floating opacity-20" style="animation-delay: 0.5s;"></div>
-        <div class="absolute bottom-20 right-10 w-48 h-48 bg-[var(--nature-earth)] rounded-[20%_50%_30%_70%] neo-border rotated-left floating opacity-30"></div>
-
-        <div class="z-10 text-center px-4">
-            <h1 class="text-5xl md:text-8xl font-impact text-white mb-6 leading-none">
-                <span class="inline-block rotated-left bg-[var(--nature-fire)] p-2 neo-border">WILD</span><br>
-                <span class="text-[var(--nature-sand)]">MEETS</span><br>
-                <span class="inline-block rotated-right bg-[var(--nature-sage)] text-[var(--nature-green)] p-2 neo-border">LUXURY</span>
-            </h1>
-            <p class="text-xl md:text-2xl font-bold text-[var(--nature-sand)] mb-10 bg-black/30 inline-block px-4 py-2 rounded-lg">
-                森のサウナでととのい、洗練されたディナーを味わう。
-            </p>
-            <div>
-                <a href="#contact" class="puffy-button bg-[var(--nature-sand)] text-[var(--nature-earth)] px-12 py-6 text-2xl font-black inline-block">
-                    テスト運用：メールで予約
-                </a>
-            </div>
+    <header class="relative min-h-[90vh] flex items-center justify-center p-6">
+        <div class="absolute inset-4 z-0 rounded-[3rem] overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=2070&auto=format&fit=crop" alt="Hero Image" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/30"></div>
         </div>
 
-        <!-- Overlapping Images -->
-        <div class="relative w-full max-w-5xl h-64 md:h-[450px] mt-16 mb-12">
-            <div class="absolute left-4 top-0 w-3/5 h-full bg-gray-300 neo-border rotated-left overflow-hidden z-10">
-                <!-- サウナ内部写真をメインに配置 -->
-                <img src="images/log01.jpg" alt="LogKoti Dome Sauna Interior" class="w-full h-full object-cover hover:scale-105 transition-all duration-700">
-                <div class="absolute bottom-6 left-6 bg-[var(--nature-green)] text-white font-bold p-3 text-sm border-2 border-black">LogKoti：ドームサウナ内部</div>
+        <div class="relative z-10 text-center text-white max-w-4xl">
+            <div class="inline-block bg-white/20 backdrop-blur-md px-4 py-1 rounded-full mb-6 border border-white/30">
+                <p class="text-sm font-bold tracking-widest uppercase">Special Collaboration Stay</p>
             </div>
-            <div class="absolute right-4 bottom-[-40px] w-1/2 h-full bg-gray-400 neo-border rotated-right overflow-hidden z-20">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200" alt="Kassel Dinner" class="w-full h-full object-cover brightness-90 hover:brightness-100 transition-all duration-700">
-                <div class="absolute top-6 right-6 bg-[var(--nature-fire)] font-bold text-white p-3 text-sm border-2 border-black">Kassel：高原のディナー</div>
-            </div>
+            <h1 class="pop-title text-4xl md:text-7xl mb-8">
+                泊まるのは、森。<br>
+                食べるのは、名店。
+            </h1>
+            <p class="text-lg md:text-2xl mb-12 font-medium">
+                最高のログハウスと、憧れのディナー。<br class="hidden md:block">
+                生野高原の“いいとこ取り”を詰め込んだ、<br class="hidden md:block">
+                遊び心あふれる大人プランできました！
+            </p>
+            <a href="#booking" class="btn-bounce">ワクワクを予約する！</a>
         </div>
     </header>
 
-    <!-- Concept Section -->
-    <section class="relative z-30 -mt-10 md:-mt-20">
-        <div class="puffy-card p-8 md:p-20 bg-white rotated-right">
-            <h2 class="text-4xl md:text-6xl font-black mb-10 leading-tight text-[var(--nature-green)]">
-                自然を遊ぶ「ワイルド」と、<br>
-                プロがもてなす「至福」。
+    <!-- Concept -->
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="pop-title text-3xl md:text-4xl mb-8">
+                <span class="text-orange-500">「泊まる」</span>と<span class="text-green-600">「食べる」</span>を、<br>
+                それぞれ一番いい場所で。
             </h2>
-            <div class="h-2 w-32 bg-[var(--nature-fire)] mb-10"></div>
-            <p class="text-xl md:text-2xl leading-relaxed font-bold text-gray-700">
-                生野高原の風が抜けるLogKoti（ログコティ）。<br>
-                仲間と火を囲むBBQも格別ですが、カッセルのディナーセットなら、<br>
-                贅沢なコース料理を堪能した後、送迎車でゆったりとログハウスへ戻る優雅な夜が叶います。<br>
-                翌朝、小鳥のさえずりの中で開く「朝食バスケット」が、特別な旅の締めくくりに。
-            </p>
+            <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl relative">
+                <div class="absolute -top-6 -left-6 bg-orange-500 text-white w-20 h-20 rounded-full flex items-center justify-center font-black rotate-[-15deg] shadow-lg">POINT</div>
+                <p class="text-lg leading-relaxed text-gray-700">
+                    宿泊は自然の中の貸別荘。<br>
+                    食事はプロが腕を振るうレストラン。<br>
+                    <span class="highlight font-bold">「どっちも妥協したくない！」</span><br>
+                    そんな大人のわがままを叶える、新しい滞在スタイルです。
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mt-20">
-        <!-- サウナ詳細カードにも写真を配置 -->
-        <div class="puffy-card overflow-hidden bg-[var(--nature-sand)] rotated-left">
-            <div class="h-48 overflow-hidden border-b-4 border-black">
-                <img src="images/log01.jpg" alt="Dome Sauna Detail" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+    <!-- Log Koti -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=2070&auto=format&fit=crop" alt="Log House" class="rounded-[2.5rem] shadow-2xl rotate-[-2deg]">
+                    <div class="absolute -bottom-6 -right-6 bg-green-700 text-white p-6 rounded-3xl shadow-xl hidden md:block">
+                        <p class="text-xl font-black">Private<br>Space!</p>
+                    </div>
+                </div>
             </div>
-            <div class="p-8">
-                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-3xl mb-4 neo-border-sm">🧖‍♂️</div>
-                <h3 class="text-2xl font-black mb-4 text-[var(--nature-earth)]">Dome Sauna</h3>
-                <p class="font-bold leading-relaxed text-gray-700 text-sm">宿泊者専用のドームサウナ。木材に囲まれた落ち着いた空間で、心ゆくまで「ととのう」体験を。</p>
-            </div>
-        </div>
-        
-        <div class="puffy-card p-10 bg-[var(--nature-sage)] rotated-right md:mt-24">
-            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-4xl mb-6 neo-border-sm">🔥</div>
-            <h3 class="text-2xl font-black mb-4 text-[var(--nature-green)]">Bonfire</h3>
-            <p class="font-bold leading-relaxed text-gray-700">揺らめく炎を見つめる贅沢。焚き火台完備で、都会では味わえない深い語らいの夜を演出します。</p>
-        </div>
-        
-        <div class="puffy-card p-10 bg-white rotated-left md:mt-12">
-            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-4xl mb-6 neo-border-sm">🌿</div>
-            <h3 class="text-2xl font-black mb-4 text-gray-800">Max 6 People</h3>
-            <p class="font-bold leading-relaxed text-gray-700">最大6名まで宿泊可能。仲の良いグループで、トレンドの「貸切ログハウス」を遊び尽くす。</p>
-        </div>
-    </section>
-
-    <!-- Kassel Section -->
-    <section class="bg-[var(--nature-green)] text-white p-12 md:p-24 rounded-[80px] my-32 neo-border">
-        <div class="flex flex-col lg:flex-row gap-16 items-center">
-            <div class="flex-1">
-                <span class="bg-[var(--nature-fire)] text-white px-6 py-2 text-sm font-black mb-6 inline-block rounded-full">KASSEL SPECIAL</span>
-                <h2 class="text-5xl md:text-7xl font-impact mb-10 text-[var(--nature-sand)] leading-tight">DINNER &<br>BREAKFAST</h2>
-                <ul class="space-y-8 text-xl md:text-2xl font-bold">
-                    <li class="flex items-center gap-6">
-                        <span class="bg-[var(--nature-sand)] text-[var(--nature-green)] rounded-xl w-12 h-12 flex items-center justify-center shrink-0 neo-border-sm font-impact">01</span>
-                        <span>但馬の旬を凝縮した本格ディナーコース</span>
-                    </li>
-                    <li class="flex items-center gap-6">
-                        <span class="bg-[var(--nature-sand)] text-[var(--nature-green)] rounded-xl w-12 h-12 flex items-center justify-center shrink-0 neo-border-sm font-impact">02</span>
-                        <span>翌朝の楽しみに「特製朝食バスケット」</span>
-                    </li>
-                    <li class="flex items-center gap-6">
-                        <span class="bg-[var(--nature-sand)] text-[var(--nature-green)] rounded-xl w-12 h-12 flex items-center justify-center shrink-0 neo-border-sm font-impact">03</span>
-                        <span>カッセルスタッフによる専用無料送迎</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex-1 w-full">
-                <div class="neo-border rounded-[40px] overflow-hidden aspect-square md:aspect-video relative">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1200" alt="Special Dinner" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-[var(--nature-earth)] mix-blend-multiply opacity-20"></div>
+            <div class="md:w-1/2 space-y-6">
+                <span class="badge">LOG KOTI EXPERIENCE</span>
+                <h3 class="pop-title text-3xl md:text-4xl text-green-800">森に包まれる、<br>秘密基地ステイ</h3>
+                <p class="text-gray-600 leading-loose">
+                    木の香りに包まれる本格ログハウス、Log Koti。<br>
+                    夜はウッドデッキで焚き火を囲んで語り合うもよし、<br>
+                    誰にも邪魔されないプライベート空間で思い切り羽を伸ばすもよし。<br>
+                    大人が童心に帰れる、自由な時間が待っています。
+                </p>
+                <div class="flex gap-4">
+                    <span class="text-orange-500 font-bold">#薪ストーブ</span>
+                    <span class="text-orange-500 font-bold">#星空観賞</span>
+                    <span class="text-orange-500 font-bold">#静寂</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Table -->
-    <section>
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-6xl font-impact mb-4">CHOOSE YOUR STYLE</h2>
-            <p class="font-bold text-gray-500">過ごし方はあなた次第。2つのプランをご用意しました。</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- Style A -->
-            <div class="puffy-card p-10 bg-white border-dashed">
-                <div class="text-sm font-black text-gray-400 mb-2 uppercase tracking-widest">Plan A</div>
-                <h3 class="text-3xl font-black mb-8 border-b-4 border-[var(--nature-sand)] pb-4">セルフBBQ</h3>
-                <ul class="space-y-6 font-bold text-gray-600">
-                    <li class="flex justify-between"><span>夕食</span> <span>持ち込み/自由調理</span></li>
-                    <li class="flex justify-between"><span>準備/片付け</span> <span>セルフサービス</span></li>
-                    <li class="flex justify-between"><span>朝食</span> <span>各自で用意</span></li>
-                    <li class="flex justify-between"><span>移動</span> <span>各自（お車など）</span></li>
-                </ul>
-                <div class="mt-12 text-center p-6 bg-gray-50 rounded-3xl font-bold border-2 border-black/5">
-                    「自分たちのペースで楽しみたい」<br>自由な旅がお好みのグループに。
+    <!-- Kassel -->
+    <section class="py-20 px-6 bg-green-50 rounded-[3rem] mx-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
+            <div class="md:w-1/2">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop" alt="Dinner" class="rounded-[2.5rem] shadow-2xl rotate-[2deg]">
+                    <div class="absolute -top-6 -left-6 bg-orange-500 text-white p-6 rounded-3xl shadow-xl hidden md:block">
+                        <p class="text-xl font-black">Tasty<br>Dinner!</p>
+                    </div>
                 </div>
             </div>
-
-            <!-- Style B -->
-            <div class="puffy-card p-10 bg-[var(--nature-sand)]">
-                <div class="absolute -top-6 -right-6 bg-[var(--nature-fire)] text-white p-5 font-impact rounded-2xl neo-border-sm rotated-right">
-                    NEW!
-                </div>
-                <div class="text-sm font-black text-[var(--nature-earth)] mb-2 uppercase tracking-widest">Plan B</div>
-                <h3 class="text-3xl font-black mb-8 border-b-4 border-[var(--nature-earth)]/20 pb-4 text-[var(--nature-earth)]">カッセルセット</h3>
-                <ul class="space-y-6 font-bold text-[var(--nature-earth)]">
-                    <li class="flex justify-between"><span>夕食</span> <span>カッセル本格コース</span></li>
-                    <li class="flex justify-between"><span>準備/片付け</span> <span>完全おまかせ</span></li>
-                    <li class="flex justify-between"><span>朝食</span> <span>特製朝食バスケット付</span></li>
-                    <li class="flex justify-between"><span>移動</span> <span>無料送迎サービス付</span></li>
-                </ul>
-                <div class="mt-12 text-center p-6 bg-white rounded-3xl font-bold neo-border-sm text-[var(--nature-green)]">
-                    「特別な日は、何もしない贅沢を」<br>プロの味に身を委ねたいグループに。
+            <div class="md:w-1/2 space-y-6">
+                <span class="badge">KASSEL DINNER</span>
+                <h3 class="pop-title text-3xl md:text-4xl text-orange-600">夜は、最高のご馳走を<br>堪能する。</h3>
+                <p class="text-gray-600 leading-loose">
+                    夕食は、森の中の名店「カッセル」で本格コースを。<br>
+                    但馬牛をはじめ、生野高原の旬を閉じ込めた料理は、まさに芸術。<br>
+                    <span class="font-bold">さらに嬉しいのは、安心の送迎付き。</span><br>
+                    ドライバーの心配をせずに、美味しいワインをたっぷり愉しめます！
+                </p>
+                <div class="bg-white p-4 rounded-2xl inline-block shadow-sm">
+                    <p class="text-sm font-bold text-gray-500">★ 夕食時は宿泊先からカッセルまで往復送迎あり！</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="pb-40">
-        <div class="bg-[var(--nature-fire)] p-12 md:p-24 rounded-[60px] neo-border text-center text-white relative overflow-hidden">
-            <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-black/10 rounded-full"></div>
-            <h2 class="text-5xl md:text-8xl font-impact mb-8 relative z-10">RESERVE</h2>
-            <p class="text-xl md:text-3xl font-bold mb-12 relative z-10 leading-relaxed">
-                現在、テスト運用期間につき<br>
-                メールでのお問い合わせのみ受付中です。
-            </p>
-            <a href="mailto:test@example.com?subject=Logkoti・カッセル宿泊プラン問い合わせ" class="puffy-button bg-[var(--nature-sand)] text-[var(--nature-earth)] px-16 py-8 text-2xl md:text-4xl font-black inline-block relative z-10">
-                メールを送る
-            </a>
+    <!-- Breakfast -->
+    <section class="py-24 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="badge mb-6">FRESH MORNING</span>
+            <h3 class="pop-title text-3xl md:text-4xl mb-12">朝は、森のピクニック気分で。</h3>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="card-pop p-8 text-left">
+                    <p class="text-gray-600 leading-loose mb-6">
+                        朝食は、前日のディナー後にカッセルから受け取る「特製バスケット」。<br><br>
+                        好きな時間に起きて、好きな場所で。<br>
+                        小鳥の声をBGMに、ウッドデッキで楽しむ朝ごはんは格別です。<br>
+                        <span class="font-bold text-green-700 underline">「チェックアウトに追われない朝」</span>という最高の贅沢。
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?q=80&w=2070&auto=format&fit=crop" alt="Breakfast" class="w-full h-48 object-cover rounded-2xl">
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-orange-100 p-6 rounded-3xl text-left">
+                        <h4 class="font-black text-orange-600 mb-2">♪ Time Free</h4>
+                        <p class="text-sm">お腹が空いた時が、あなたの朝食時間。</p>
+                    </div>
+                    <div class="bg-green-100 p-6 rounded-3xl text-left">
+                        <h4 class="font-black text-green-700 mb-2">♪ Location Free</h4>
+                        <p class="text-sm">デッキでもリビングでも、好きな場所が特等席。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Grid -->
+    <section class="py-20 bg-green-800 text-white rounded-t-[4rem]">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="pop-title text-3xl text-center mb-16 italic">"Good things only"</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-white/10 rounded-[2rem] border border-white/20">
+                    <div class="text-4xl mb-4">🌲</div>
+                    <h4 class="font-black text-xl mb-4">自然も料理も妥協なし</h4>
+                    <p class="text-sm opacity-80">アウトドアの解放感と、レストランの高級感を一度に味わえます。</p>
+                </div>
+                <div class="text-center p-8 bg-white/10 rounded-[2rem] border border-white/20">
+                    <div class="text-4xl mb-4">🚗</div>
+                    <h4 class="font-black text-xl mb-4">手間なし・満足度MAX</h4>
+                    <p class="text-sm opacity-80">送迎付き、朝食付き。面倒なことは全部お任せでOK！</p>
+                </div>
+                <div class="text-center p-8 bg-white/10 rounded-[2rem] border border-white/20">
+                    <div class="text-4xl mb-4">🍷</div>
+                    <h4 class="font-black text-xl mb-4">大人のための贅沢</h4>
+                    <p class="text-sm opacity-80">静かな空間で、大切な人と「食」と「空間」を楽しむご褒美タイム。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Card -->
+    <section id="booking" class="py-24 px-6 bg-white relative">
+        <div class="max-w-3xl mx-auto">
+            <div class="relative">
+                <div class="absolute -top-12 -right-8 w-32 h-32 bg-yellow-400 rounded-full flex items-center justify-center font-black rotate-12 shadow-lg z-10 text-center text-sm">
+                    記念日にも<br>おすすめ！
+                </div>
+                <div class="border-[4px] border-green-700 rounded-[3rem] p-8 md:p-16 relative bg-white">
+                    <h2 class="pop-title text-3xl text-center mb-12">Plan Details</h2>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4 pb-6 border-b border-gray-100">
+                            <span class="text-orange-500 text-xl font-bold">01</span>
+                            <div>
+                                <p class="font-bold">一泊二食付き特別プラン</p>
+                                <p class="text-sm text-gray-500">Log Kotiでの宿泊 ＋ カッセルでの食事</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 pb-6 border-b border-gray-100">
+                            <span class="text-orange-500 text-xl font-bold">02</span>
+                            <div>
+                                <p class="font-bold">夕食：カッセル特別ディナー</p>
+                                <p class="text-sm text-gray-500">18:00〜（ご希望に合わせて送迎車がお迎えにあがります）</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 pb-6 border-b border-gray-100">
+                            <span class="text-orange-500 text-xl font-bold">03</span>
+                            <div>
+                                <p class="font-bold">朝食：特製バスケットをお部屋で</p>
+                                <p class="text-sm text-gray-500">レストランの味を、翌朝お好きな時間に。</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-12 text-center">
+                        <a href="#" onclick="alert('予約システムへ遷移します')" class="btn-bounce w-full md:w-auto px-12">空室を確認して予約する！</a>
+                        <p class="mt-4 text-xs text-gray-400">※キャンセルポリシーは予約サイトにてご確認ください。</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[var(--neo-black)] text-white p-20 text-center font-bold">
-        <div class="font-impact text-4xl mb-4 tracking-tighter">SUGOMoRI RESORT</div>
-        <p class="text-[var(--nature-sage)] mb-12">IKUNO KOGEN HIGHLANDS</p>
-        <p class="text-gray-500 text-sm tracking-widest">&copy; 2026 SUGOMoRI x KASSEL. NATURE & LUXURY.</p>
+    <footer class="py-16 bg-[#2d2d2d] text-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="pop-title text-2xl mb-8">生野高原で、忘れられない週末を。</h2>
+            <div class="flex flex-wrap justify-center gap-8 mb-12">
+                <div class="text-left">
+                    <p class="text-xs text-gray-400 mb-2">Stay Location</p>
+                    <p class="font-bold">SUGOMoRIリゾート生野高原 Log Koti</p>
+                </div>
+                <div class="text-left">
+                    <p class="text-xs text-gray-400 mb-2">Restaurant</p>
+                    <p class="font-bold">カッセル (Kassel)</p>
+                </div>
+            </div>
+            <p class="text-[10px] opacity-40">&copy; 2024 SUGOMoRI x Kassel Collaboration. All Rights Reserved.</p>
+        </div>
     </footer>
 
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Reveal elements on scroll
+        const observerOptions = { threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('section, div[class*="md:w-"], .card-pop').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
         });
     </script>
 </body>
