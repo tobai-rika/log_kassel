@@ -1,0 +1,31 @@
+name: Deploy via SSH (SFTP) to Lolipop
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ⚠️ 修正ポイント：サーバーに不要な管理ファイルを削除してから送ります
+      - name: Remove unnecessary files
+        run: rm -rf .git .github
+
+      - name: Copy files via SSH password
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
+          port: 2222
+          
+          source: "."
+          target: "web/houseinfo/lp/log_kassel"
+          
+          overwrite: true
+          strip_components: 0
