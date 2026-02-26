@@ -86,25 +86,25 @@
             background-size: 20px 20px;
         }
 
-        /* SVG Icon styling */
         .benefit-icon {
             width: 48px;
             height: 48px;
             margin: 0 auto 1.5rem;
-            color: #fde68a; /* Soft Gold */
+            color: #fde68a;
         }
 
-        /* スライダー用の追加スタイル */
-        #hero-slider {
+        /* --- 無限スライダー用のスタイル --- */
+        #slider-container {
             display: flex;
-            width: 400%; /* 画像4枚分 */
             height: 100%;
+            width: 100%;
+            /* 初期状態ではアニメーションをONにしておく */
             transition: transform 1s cubic-bezier(0.45, 0, 0.55, 1);
         }
         .slide-item {
-            width: 25%; /* 100% / 4枚 */
+            flex: 0 0 100%; /* 各画像を横幅100%に固定 */
             height: 100%;
-            flex-shrink: 0;
+            object-cover: cover;
         }
     </style>
 </head>
@@ -112,11 +112,11 @@
 
     <header class="relative min-h-[90vh] flex items-center justify-center p-6 overflow-hidden">
         <div class="absolute inset-4 z-0 rounded-[3rem] overflow-hidden shadow-2xl">
-            <div id="hero-slider">
-                <img src="images/P1060502.jpg" alt="Hero 1" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=2070&auto=format&fit=crop';">
-                <img src="images/2.jpg" alt="Hero 2" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1449156001437-3a1621acbe26?q=80&w=2000&auto=format&fit=crop';">
-                <img src="images/3.jpg" alt="Hero 3" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop';">
-                <img src="images/4.jpg" alt="Hero 4" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop';">
+            <div id="slider-container">
+                <img src="images/P1060502.jpg" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=2070&auto=format&fit=crop';">
+                <img src="images/2.jpg" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1449156001437-3a1621acbe26?q=80&w=2000&auto=format&fit=crop';">
+                <img src="images/3.jpg" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop';">
+                <img src="images/4.jpg" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop';">
             </div>
             <div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
         </div>
@@ -383,17 +383,39 @@
     </footer>
 
     <script>
-        // --- スライダー制御ロジック ---
-        const slider = document.getElementById('hero-slider');
-        const slideCount = 4;
+        // --- 無限ループスライダー制御 ---
+        const sliderContainer = document.getElementById('slider-container');
+        const slides = document.querySelectorAll('.slide-item');
+        const slideCount = slides.length;
+        
+        // 最初のスライドをコピーして最後に追加
+        const firstClone = slides[0].cloneNode(true);
+        sliderContainer.appendChild(firstClone);
+        
         let currentIndex = 0;
+        let isTransitioning = false;
 
         function updateSlider() {
-            currentIndex = (currentIndex + 1) % slideCount;
-            slider.style.transform = `translateX(-${currentIndex * 25}%)`;
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            currentIndex++;
+            sliderContainer.style.transition = "transform 1s cubic-bezier(0.45, 0, 0.55, 1)";
+            sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // アニメーション終了時の処理
+            sliderContainer.addEventListener('transitionend', () => {
+                // クローン（5枚目）に到達したら、アニメーションなしで本物の1枚目に戻る
+                if (currentIndex >= slideCount) {
+                    sliderContainer.style.transition = "none";
+                    currentIndex = 0;
+                    sliderContainer.style.transform = `translateX(0)`;
+                }
+                isTransitioning = false;
+            }, { once: true });
         }
 
-        // 3秒(3000ms)ごとに画像を切り替え
+        // 3秒ごとに実行
         setInterval(updateSlider, 3000);
 
 
