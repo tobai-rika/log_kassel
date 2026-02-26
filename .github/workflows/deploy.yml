@@ -1,22 +1,4 @@
-name: Deploy via SSH (SFTP) to Lolipop
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      # ⚠️ 修正ポイント：サーバーに不要な管理ファイルを削除してから送ります
-      - name: Remove unnecessary files
-        run: rm -rf .git .github
-
-      - name: Copy files via SSH password
+- name: Copy files via SSH password
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -24,8 +6,20 @@ jobs:
           password: ${{ secrets.SSH_PASS }}
           port: 2222
           
-          source: "."
+          # 転送するファイル（index.htmlとimagesフォルダのみに絞るとより確実です）
+          source: "index.html,images/**"
+          
+          # ターゲットディレクトリ（相対パスでOKですが、念のため確認してください）
           target: "web/houseinfo/lp/log_kassel"
+          
+          # --- ここからが「突然のエラー」対策の追加設定 ---
+          
+          # ロリポップの /tmp 容量制限を避けるため、作業用パスを指定
+          tar_tmp_path: "web/houseinfo/lp"
+          
+          # 画像が増えたことによるタイムアウトを防ぐ
+          timeout: 60s
+          command_timeout: 2m
           
           overwrite: true
           strip_components: 0
