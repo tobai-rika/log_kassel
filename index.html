@@ -93,15 +93,32 @@
             margin: 0 auto 1.5rem;
             color: #fde68a; /* Soft Gold */
         }
+
+        /* スライダー用の追加スタイル */
+        #hero-slider {
+            display: flex;
+            width: 400%; /* 画像4枚分 */
+            height: 100%;
+            transition: transform 1s cubic-bezier(0.45, 0, 0.55, 1);
+        }
+        .slide-item {
+            width: 25%; /* 100% / 4枚 */
+            height: 100%;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="bg-pattern">
 
-    <!-- Hero Section -->
-    <header class="relative min-h-[90vh] flex items-center justify-center p-6">
+    <header class="relative min-h-[90vh] flex items-center justify-center p-6 overflow-hidden">
         <div class="absolute inset-4 z-0 rounded-[3rem] overflow-hidden shadow-2xl">
-            <img src="images/P1060502.jpg" alt="Hero Image" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=2070&auto=format&fit=crop';">
-            <div class="absolute inset-0 bg-black/30"></div>
+            <div id="hero-slider">
+                <img src="images/P1060502.jpg" alt="Hero 1" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=2070&auto=format&fit=crop';">
+                <img src="images/2.jpg" alt="Hero 2" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1449156001437-3a1621acbe26?q=80&w=2000&auto=format&fit=crop';">
+                <img src="images/3.jpg" alt="Hero 3" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop';">
+                <img src="images/4.jpg" alt="Hero 4" class="slide-item object-cover" onerror="this.src='https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop';">
+            </div>
+            <div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
         </div>
 
         <div class="relative z-10 text-center text-white max-w-4xl px-4">
@@ -121,7 +138,6 @@
         </div>
     </header>
 
-    <!-- Concept -->
     <section class="py-24 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="pop-title text-3xl md:text-4xl mb-8">
@@ -140,7 +156,6 @@
         </div>
     </section>
 
-    <!-- Log Koti -->
     <section class="py-20 px-6">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2">
@@ -169,7 +184,6 @@
         </div>
     </section>
 
-    <!-- Dome Sauna -->
     <section class="py-20 px-6 bg-orange-50 rounded-[3rem] mx-4 my-8">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
             <div class="md:w-1/2">
@@ -197,7 +211,6 @@
         </div>
     </section>
 
-    <!-- Kassel -->
     <section class="py-20 px-6 bg-green-50 rounded-[3rem] mx-4">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2">
@@ -237,7 +250,6 @@
         </div>
     </section>
 
-    <!-- Breakfast -->
     <section class="py-24 px-6">
         <div class="max-w-5xl mx-auto text-center px-4">
             <span class="badge mb-6">FRESH MORNING</span>
@@ -269,13 +281,11 @@
         </div>
     </section>
 
-    <!-- Benefits Grid -->
     <section class="py-24 bg-green-800 text-white rounded-t-[4rem]">
         <div class="max-w-6xl mx-auto px-6">
             <h3 class="pop-title text-3xl text-center mb-16 italic opacity-80">"Good things only"</h3>
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="text-center p-8 bg-white/10 rounded-[2rem] border border-white/20">
-                    <!-- Tree SVG -->
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 2L19 12H5L12 2Z" />
                         <path d="M12 7L21 17H3L12 7Z" />
@@ -285,7 +295,6 @@
                     <p class="text-sm leading-loose opacity-70">アウトドアの解放感と、レストランの高級感を一度に味わえます。</p>
                 </div>
                 <div class="text-center p-8 bg-white/10 rounded-[2rem] border border-white/20">
-                    <!-- Car SVG -->
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="1" y="10" width="22" height="8" rx="2" />
                         <path d="M7 10L9 4H15L17 10" />
@@ -296,7 +305,6 @@
                     <p class="text-sm leading-loose opacity-70">送迎付き、朝食付き。面倒なことは全部お任せでOK！</p>
                 </div>
                 <div class="text-center p-8 bg-white/10 rounded-[2rem] border border-white/20">
-                    <!-- Wine SVG -->
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M8 22h8" />
                         <path d="M12 11V22" />
@@ -310,7 +318,6 @@
         </div>
     </section>
 
-    <!-- Details Card -->
     <section id="booking" class="py-24 px-6 bg-white relative">
         <div class="max-w-3xl mx-auto px-4">
             <div class="relative">
@@ -358,19 +365,16 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-16 bg-[#2d2d2d] text-white text-center">
         <div class="container mx-auto px-6">
             <h2 class="pop-title text-2xl mb-12 text-gray-200">生野高原で、忘れられない週末を。</h2>
             <div class="flex flex-wrap justify-center gap-12 mb-16 text-gray-100">
                 <div class="text-left">
                     <p class="text-xs text-gray-400 mb-2 uppercase tracking-widest">Stay Location</p>
-                    <!-- リンクを追加 -->
                     <a href="https://sugomori.hyogo.jp/plan/log-koti/" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-orange-400 hover:underline transition-all">SUGOMoRIリゾート生野高原 Log Koti</a>
                 </div>
                 <div class="text-left">
                     <p class="text-xs text-gray-400 mb-2 uppercase tracking-widest">Restaurant</p>
-                    <!-- リンクを追加 -->
                     <a href="https://kassel.jp/" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-orange-400 hover:underline transition-all">カッセル (Kassel)</a>
                 </div>
             </div>
@@ -379,7 +383,21 @@
     </footer>
 
     <script>
-        // Reveal elements on scroll
+        // --- スライダー制御ロジック ---
+        const slider = document.getElementById('hero-slider');
+        const slideCount = 4;
+        let currentIndex = 0;
+
+        function updateSlider() {
+            currentIndex = (currentIndex + 1) % slideCount;
+            slider.style.transform = `translateX(-${currentIndex * 25}%)`;
+        }
+
+        // 3秒(3000ms)ごとに画像を切り替え
+        setInterval(updateSlider, 3000);
+
+
+        // --- スクロールアニメーション (既設) ---
         const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
